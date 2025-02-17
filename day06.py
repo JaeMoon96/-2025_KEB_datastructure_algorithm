@@ -8,5 +8,11 @@ def is_even(n) -> bool:
         return True
     return False
 
+a = 10
+b = 11
+# bit operation (2진수로 바꾼후 and or nor로 연산)
+print (a & b) #10
+print (a | b) #11
+print (a ^ b) #1
 n = int(input())
 print(is_even)
