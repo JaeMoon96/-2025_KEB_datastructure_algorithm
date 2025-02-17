@@ -1,0 +1,12 @@
+Guess number is 50
+50 is lower. Chance left : 6
+Guess number is 75
+75 is lower. Chance left : 5
+Guess number is 88
+88 is bigger. Chance left : 4
+Guess number is 81
+81 is bigger. Chance left : 3
+Guess number is 78
+78 is bigger. Chance left : 2
+Guess number is 76
+You win. Answer is 76
