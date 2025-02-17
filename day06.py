@@ -1,23 +1,53 @@
-def is_even(n) -> bool:
-    """
-    짝수 판정 함수
-    :param n: 판정할 정수
-    :return: 짝수면 True, 홀수면 False
-    """
-    return not n & 1
-#비트연산을 통해 코드를 줄일수있음
+# repetition(반복문)
+# def factorial(number) -> int:
+#     '''
+#     factorial by repetition
+#     :param number: number (int)
+#     :return: factorial result (int)
+#     '''
+#     result = 1
+#     for i in range(1, number+1):
+#         result = result * i
+#     return result
 
-   # if n % 2 == 0:
-   #      return True
-   #  return False
+#recursion(재귀함수)
+def factorial(number) -> int:
+    '''
+    factorial by recursion
+    :param number: number (int)
+    :return: factorial result (int)
+    '''
+    if number == 1:
+        return 1
+    else:
+        return number * factorial(number - 1)
 
-n = int(input())
-print(is_even(n))
+
+def nCr(n, r) -> int:
+    '''
+    조합 함수
+    :param n:
+    :param r:
+    :return:
+    '''
+    numerator = factorial(n)
+    denominator = factorial(n-r) * factorial(r)
+    return int(numerator / denominator)
 
 
-a = 10
-b = 11
-# bit operation (2진수로 바꾼후 and or nor로 연산)
-print (a & b) #10
-print (a | b) #11
-print (a ^ b) #11
+if __name__ == "__main__":
+    n = int(input("Input n : "))
+    r = int(input("Input r : "))
+    print(f"{n}C{r} = {nCr(n, r)}")
+    # f = int(input())
+    # print(factorial(f))
+
+def dec_oct(n) -> int:
+    if n == 0:
+        return ""
+    else:
+        return dec_oct(n//8) + str(n%8)
+
+    n = int(input())
+    print(dec_oct(n))
+
