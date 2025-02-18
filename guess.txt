@@ -7,6 +7,4 @@ Guess number is 88
 Guess number is 81
 81 is bigger. Chance left : 3
 Guess number is 78
-78 is bigger. Chance left : 2
-Guess number is 76
-You win. Answer is 76
+You win. Answer is 78
