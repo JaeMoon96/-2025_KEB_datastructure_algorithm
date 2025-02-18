@@ -1,5 +1,3 @@
-# 단일 연결 리스트(Singly Linked List) 구현
-
 #  Node 클래스 (연결 리스트의 개별 노드)
 class Node:
     def __init__(self, data, next=None):
@@ -8,8 +6,8 @@ class Node:
         :param data: 노드가 저장할 값
         :param next: 다음 노드의 주소를 저장하는 포인터 (기본값: None)
         """
-        self.data = data  # 노드가 저장하는 값
-        self.next = next  # 다음 노드를 가리키는 포인터
+        self.data = data  # 노드가 저장하는 데이터 값
+        self.next = next  # 다음 노드를 가리키는 포인터 (기본값 None)
 
 
 #  LinkedList 클래스 (연결 리스트 전체를 관리)
@@ -39,15 +37,16 @@ class LinkedList:
         # 마지막 노드(current.next가 None인 상태)에 새 노드 연결
         current.next = Node(data)
 
-    def display(self):
+    def __str__(self):
         """
-        연결 리스트의 모든 노드를 출력하는 함수
+        연결 리스트의 모든 노드를 출력하는 함수 (문자열 반환)
+        :return: "end" (출력 완료 후 반환할 문자열)
         """
-        current = self.head  # Head부터 시작
-        while current:  # 현재 노드가 None이 아닐 때까지 반복
-            print(current.data, end=" -> ")  # 현재 노드 값 출력
-            current = current.next  # 다음 노드로 이동
-        print("None")  # 마지막 노드 이후에는 None 출력 (연결 리스트 종료 표시)
+        node = self.head  # 리스트의 첫 번째 노드부터 시작
+        while node is not None:  # 노드가 존재하는 동안 반복
+            print(node.data)  # 현재 노드의 데이터 출력
+            node = node.next  # 다음 노드로 이동
+        return "end"  # 모든 노드 출력 후 반환
 
 
 #  실행 코드 (메인 함수 역할)
@@ -59,5 +58,9 @@ if __name__ == "__main__":
     l.append(-11)  # 리스트: 7 -> -11
     l.append(8)  # 리스트: 7 -> -11 -> 8
 
-    # 리스트 출력
-    l.display()  # 출력 결과: 7 -> -11 -> 8 -> None
+    # 리스트 출력 (__str__ 메서드 호출)
+    print(l)  # 출력 결과: 
+    # 7
+    # -11
+    # 8
+    # end
