@@ -1,3 +1,6 @@
+from selectors import SelectSelector
+
+
 class TreeNode:
 	def __init__(self):
 		self.left = None
@@ -48,3 +51,51 @@ if __name__ == "__main__":
                 print(f"{find_group}이(가) 존재하지 않습니다")
                 break
             current = current.right
+
+deleteName = int(input("삭제할 값을 입력하세요: "))
+current = root
+parent = None
+
+while True:
+    if deleteName == current.data:
+
+        if current.left is None and current.right is None:
+            if parent.left == current:
+                parent.left = None
+            else:
+                parent.right = None
+            del current
+
+        elif current.left != None and current.right == None:
+            if parent.left == current:
+                parent.left = current.left
+            else:
+                parent.right = current.left
+            del current
+
+        elif current.left == None and current.right != None:
+            if parent.left == current:
+                parent.left = current.right
+            else:
+                parent.right = current.right
+            del current
+
+        elif current.left != None and current.right != None:
+            pass #과제
+
+        print(deleteName, '이(가) 삭제됨.')
+        break
+
+    elif deleteName < current.data:
+        if current.left is None:
+            print(deleteName, '이(가) 트리에 없음')
+            break
+        parent = current
+        current = current.left
+
+    else:
+        if current.right is None:
+            print(deleteName, '이(가) 트리에 없음')
+            break
+        parent = current
+        current = current.right
