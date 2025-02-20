@@ -34,7 +34,6 @@ def find_min(node):
 
 
 # 이진 탐색 트리에서 특정 값을 삭제하는 함수
-def delete(root, value):
     if root == None or root.data == None:  # 트리가 비어 있으면 종료
         return root
 
