@@ -33,18 +33,18 @@ def search(root, value):
             current = current.right
     return None
 
-def bfs (root):
+def bfs(node):
+    if node is None:
+        return
 
-    queue = deque([root])
+    queue = deque([node])
     while queue:
         current = queue.popleft()
-        if current.left is not None:
+        print(f"{current.data}", end=' ')
+        if current.left:
             queue.append(current.left)
-
-        if current.right is not None:
+        if current.right:
             queue.append(current.right)
-
-        print(f"{current.data} ", end='')
 
 # def post_order(node):
 #     if node is None:
@@ -114,7 +114,7 @@ if __name__ == "__main__":
             else:
                 print(f"{value}이(가) 존재하지 않습니다.")
         elif choice == '4':
-            bfs(root)
+            bfs(node)
         elif choice == '5':
             print("프로그램을 종료합니다.")
             break
